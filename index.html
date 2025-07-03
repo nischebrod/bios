@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ваш организм расскажет, что ему нужно</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background-color: #fffaf4;
+        color: #1d1d1f;
+        line-height: 1.5;
+      }
+      header {
+        background-color: #f9efe4;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 32px;
+        font-weight: 700;
+        max-width: 700px;
+        margin: 0 auto 20px;
+      }
+      header p {
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      section {
+        padding: 60px 20px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .image-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      .image-row img {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 16px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      ul li {
+        margin-bottom: 12px;
+      }
+      .cta {
+        background-color: #ffe9cc;
+        text-align: center;
+        padding: 60px 20px;
+      }
+      .cta h3 {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .cta button {
+        background-color: #ff8200;
+        color: white;
+        border: none;
+        padding: 16px 32px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .cta button:hover {
+        background-color: #e46f00;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 500px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .close:hover {
+        color: #000;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #999;
+      }
+      input,
+      button {
+        font-family: "Inter", sans-serif;
+      }
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Узнайте, какие продукты действительно подходят именно вам</h1>
+      <p>
+        Присоединяйтесь к исследованию и получите персональный план питания,
+        основанный на реакции вашего организма.
+      </p>
+    </header>
+
+    <section>
+      <div class="image-row">
+        <img
+          src="https://images.unsplash.com/photo-1604908177521-34d1e7f4c1cc?auto=format&fit=crop&w=400&q=80"
+          alt="Sensor on arm"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1618915724809-31558f64df97?auto=format&fit=crop&w=400&q=80"
+          alt="Healthy meal"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=400&q=80"
+          alt="Gut microbiome"
+        />
+      </div>
+      <h2>Что включает участие:</h2>
+      <ul>
+        <li>
+          Измерение уровня сахара в крови после еды с помощью датчика (14 дней)
+        </li>
+        <li>Анализ микробиома кишечника по пробе</li>
+        <li>Дневник питания в приложении (без подсчёта калорий)</li>
+        <li>
+          Личный отчет: какие продукты дают энергию, а какие вызывают усталость
+          или тяжесть
+        </li>
+        <li>Конкретные рекомендации по выбору блюд на каждый день</li>
+      </ul>
+    </section>
+
+    <section class="cta">
+      <h3>Хотите узнать, как еда влияет именно на ваш организм?</h3>
+      <p>Запишитесь в исследование — бесплатно для первых участников.</p>
+      <br />
+      <button
+        onclick="document.getElementById('formModal').style.display='block'"
+      >
+        Принять участие
+      </button>
+    </section>
+
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span
+          class="close"
+          onclick="document.getElementById('formModal').style.display='none'"
+          >&times;</span
+        >
+        <h3 style="margin-top: 0">Заявка на участие</h3>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="ВАШ_WEB3FORMS_KEY" />
+          <input
+            type="hidden"
+            name="subject"
+            value="Новая заявка с лендинга ZOE-аналога"
+          />
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://example.com/thank-you"
+          />
+
+          <label>Ваше имя</label>
+          <input type="text" name="name" required />
+
+          <label>Телефон или Telegram</label>
+          <input type="text" name="contact" required />
+
+          <button
+            type="submit"
+            style="
+              background-color: #ff8200;
+              color: white;
+              border: none;
+              padding: 14px 28px;
+              font-size: 16px;
+              font-weight: 600;
+              border-radius: 10px;
+              cursor: pointer;
+            "
+          >
+            Отправить
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Ваша компания. Это не медицинская услуга. Исследование
+      проводится в информационных целях.
+    </footer>
+  </body>
+</html>
